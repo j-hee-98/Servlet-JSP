@@ -1,0 +1,22 @@
+package ex0417.listener;
+
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSessionEvent;
+import jakarta.servlet.http.HttpSessionListener;
+
+@WebListener
+public class SessionListener implements HttpSessionListener {
+
+    public SessionListener() {
+    	System.out.println("SessionListener constructor call...");
+    }
+
+    public void sessionCreated(HttpSessionEvent se)  { 
+    	System.out.println("SessionListener sessionCreated(HttpSessionEvent se) call... ");
+    }
+
+    public void sessionDestroyed(HttpSessionEvent se)  { 
+    	System.out.println("SessionListener sessionDestroyed(HttpSessionEvent se) call...");
+    }
+	
+}

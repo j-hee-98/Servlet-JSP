@@ -1,0 +1,25 @@
+package ex0417.servlet;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class InitParamTestServlet extends HttpServlet {
+	public InitParamTestServlet() {
+		System.out.println("InitParamTestServlet 생성자 호출");
+	}
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		System.out.println("InitParamTestServlet init call....");
+	}
+	
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+}

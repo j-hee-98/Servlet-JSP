@@ -1,0 +1,10 @@
+package ex0416.el;
+
+public class Product {
+	private String code;
+	private String name;
+	private int qty;
+	private int price;
+	
+	
+}

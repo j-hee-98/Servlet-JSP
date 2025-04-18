@@ -1,0 +1,41 @@
+package ex0414.servlet;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class LifeCycleServlet extends HttpServlet {
+	
+	public LifeCycleServlet() {
+		System.out.println("LifeCycleServlet init call...");
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("LifeCycleServlet doGet call...");
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("LifeCycleServlet doPost call...");
+	}
+
+	@Override
+	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+		System.out.println("LifeCycleServlet Service call...");
+	}
+
+	@Override
+	public void destroy() {
+		System.out.println("LifeCycleServlet destory call...");
+	}
+
+	@Override
+	public void init() throws ServletException {
+		System.out.println("LifeCycleServlet init call...");
+	}
+	
+}

@@ -1,0 +1,44 @@
+package ex0414.servlet;
+
+import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class LoginServlet extends HttpServlet {
+	String dbId = "j";
+	String dbPwd = "1234";
+		
+	public LoginServlet() {
+		System.out.println("Login constructor call...");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("LoginServlet doPost call...");
+		
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
+		String userName = request.getParameter("userName");
+		
+		System.out.println("userId = "+userId);
+		System.out.println("userPwd = "+userPwd);
+		System.out.println("userName = "+userName);
+		
+		if (dbId.equals(userId) && dbPwd.equals(userPwd)) {
+			// 성공 - loginOk.jsp
+			// 1. Redirect 방식 - 새로운 request, response를 생성해서 이동
+			response.sendRedirect("loginOk.jsp");
+			
+			// 2. Forward 방식 - 기존의 request, response가 유지된다. 
+//			request.getRequestDispatcher("loginOk.jsp").forward(request, response);
+		} else {
+			// 실패 - login.html 이동
+			response.sendRedirect("login.html");
+			
+		}
+	}
+}

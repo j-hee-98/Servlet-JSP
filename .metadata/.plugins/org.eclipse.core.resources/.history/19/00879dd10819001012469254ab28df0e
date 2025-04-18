@@ -1,0 +1,38 @@
+package ex0414_ws;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class HobbyServlet extends HttpServlet {
+
+	public HobbyServlet() {
+		System.out.println("hobbyServlet constructor call...................");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("hobbyServlet doPost call...................");
+		
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		String age = request.getParameter("age");
+	
+		String hobby [] = request.getParameterValues("hobby");
+		
+		System.out.println("아이디 ="+id);
+		System.out.println("비번 ="+pwd);
+		System.out.println("이름 ="+name);
+		System.out.println("나이 = "+age);
+		System.out.println();
+		PrintWriter out = response.getWriter();
+		out.print(id);
+		out.print(pwd);
+		
+	}
+}

@@ -1,0 +1,36 @@
+package filter;
+
+import java.io.IOException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+
+public class LogFilter implements Filter {
+	
+	Log log = LogFactory.getLog(super.getClass());
+	@Override
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+			throws IOException, ServletException {
+		
+		// 사전 처리
+		System.out.println("사전 처리 시작 중...");
+		String ip = req.getRemoteAddr();
+		String url = req.getRequestId();
+		long start = System.currentTimeMillis();	// 현재시간
+		
+		chain.doFilter(req, res);
+		
+		System.out.println("사후 처리 시작 중...");
+		long end = System.currentTimeMillis();
+		
+		log.debug(ip +""+url+"" + (start-end) +"");
+		// 사후처리
+	}
+
+}

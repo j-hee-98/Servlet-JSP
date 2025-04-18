@@ -1,0 +1,32 @@
+package servlet;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.annotation.WebInitParam;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(
+		urlPatterns = {"/login"},
+		initParams = {
+				@WebInitParam(name = "dbId", value = "j"),
+				@WebInitParam(name = "dbPwd", value = "1234")
+		}, loadOnStartup = 1)
+public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private String dbId;
+	private String dbPwd;
+
+	public void init(ServletConfig config) throws ServletException {
+		dbId = config.getInitParameter("dbId");
+		dbPwd = config.getInitParameter("dbPwd");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}

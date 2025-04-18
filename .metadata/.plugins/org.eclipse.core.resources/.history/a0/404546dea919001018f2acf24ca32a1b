@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>HttpSession - session 관련 메서드 알아보기</h1>
+<h3>
+	session.getId() = <%=session.getId() %> <br>
+	session.isNew() = <%=session.isNew() %> <br>
+	session.getMaxInactiveInterval() = <%=session.getMaxInactiveInterval() %> <br>
+	session.getCreationTime() = <%=session.getCreationTime() %> <br>
+	session.getLastAccessedTime() = <%=session.getLastAccessedTime() %> <br>
+</h3>
+</body>
+</html>

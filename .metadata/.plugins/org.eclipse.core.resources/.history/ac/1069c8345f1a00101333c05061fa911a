@@ -1,0 +1,39 @@
+<%@page import="javax.xml.stream.Location"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>로그인 성공 페이지</h3>
+	
+	<% 
+		if (session.getAttribute("id") == null) { %>
+	<script type="text/javascript">
+			alert("로그인 후 들어오세요.");
+			location.href = "<%=application.getContextPath()%>/login/LoginForm.jsp";		
+	</script>
+	<% } %>
+	
+	<%
+		String name = (String) session.getAttribute("name");
+		//long time = (long) session.getAttribute("time");
+	%>
+	<h4>
+	<%=name %>님 로그인 중	<br>
+	</h4>
+	<img alt="로그인 축하 사진" src="image/iu.jpg" style="width:150px;"> <br>
+	<a href="#">로그아웃</a>
+	
+	<script type="text/javascript">
+		document.querySelector("a").addEventListener("click", () => {
+			if (confim("로그아웃 하시겠습니까?")) {
+				location.href = "<%=application.getContextPath()%>/logout";
+			}
+		}});
+	</script>
+</body>
+</html>

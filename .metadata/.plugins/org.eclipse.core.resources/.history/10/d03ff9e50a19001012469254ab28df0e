@@ -1,0 +1,7 @@
+package ex0414_ws;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class BloodFormServlet extends HttpServlet {
+
+}

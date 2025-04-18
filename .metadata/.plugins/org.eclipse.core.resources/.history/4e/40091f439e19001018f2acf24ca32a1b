@@ -1,0 +1,26 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Have a nice day! - 반가워</h1>
+	<%
+		Calendar now = Calendar.getInstance();
+		// java
+		// 내장 객체 - request, response, out, session, application| , exception
+		String name = "둘리";	// 지역 변수 - 초기화 필수
+		out.print("<h3>"+name+"</h3>");
+		out.print("<h3>"+now+"</h3>");
+	%>
+	
+	<%!
+		// 선언문(전역변수 or 메소드 선언 가능)
+		String name;
+	%>
+</body>
+</html>

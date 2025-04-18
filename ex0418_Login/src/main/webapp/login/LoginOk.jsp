@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>   
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<%
+response.setHeader("Cache-Control","no-store");//
+session.setMaxInactiveInterval(30);//30초
+%>
+<c:choose>
+  <c:when test="${not empty sessionId}">
+      <h3>
+      ${sessionScope.sessionName}(${sessionId})님 로그인 중 
+       [접속시간 :${creationTime} ] <p>
+     </h3>
+  	  <img src="images/iu.jpg" style="width: 300px"><p>
+  	<h3>[ 현재 접속된 사용자 수 (로그인된 ) : ${applicationScope.loginCount } 명]</h3>
+  	 <a href="#">로그아웃</a>
+  	 
+  </c:when>
+  <c:otherwise>
+       <script type="text/javascript">
+	     alert("인증하고 이용해주세요.");
+	     location.href="${pageContext.request.contextPath}/login/LoginForm.jsp";
+	   </script>
+  </c:otherwise>
+</c:choose>
+
+
+
+<script type="text/javascript">
+
+    document.querySelector("a").addEventListener("click", function(){
+    	  //로그아웃기능을하는 페이지로 이동해서 모든세션의 삭제
+		  if(confirm("로그아웃할래?")){
+			location.href = "${pageContext.request.contextPath}/logout" ; //logout이 url-pattern
+			  
+		  }
+    })
+	  
+	  
+</script>
+
+</body>
+</html>

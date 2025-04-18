@@ -1,0 +1,68 @@
+<%@page import="ex0416.el.Product"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>EL (Expression Language) = 표현언어</h1>
+\${5} = ${5}<br>
+\${5+2} = ${5+2}<br>
+\${5*3} = ${5*3}<br>
+\${5 lt 3} = ${5 lt 3}<br>
+\${5 > 3} = ${5 > 3}<br>
+
+\${"배고프다"} = ${"배고프다"}<br>
+\${'되니?'} = ${'되니?'}<br>
+
+\${5 gt 3 and 10 eq 10 } = ${5 gt 3 and 10 eq 10 } <br>
+${ 5 > 3 ? "크다": "작다" }<hr>
+
+<!-- 만약,  http://localhost:8080/step02_JSP/el_Jstl/ex01_elTest.jsp?age=20 
+	일 때 나이가 18보다 작으면 미성년자, 크면 성인 출력
+-->
+${param.age >= 18 ? "성인": "미성년자"} <br>
+
+<!-- 만약,  http://localhost:8080/step02_JSP/el_Jstl/ex01_elTest.jsp?age=20&id=j 
+	일 때 나이가 18보다 작으면 미성년자, 크면 성인 출력
+-->
+${param.id != null ? param.id : "Guest"} <br>
+${not empty param.id ? param.id : "Guest"} <br>
+
+${param.id != null ? param.id += "님" :"Guest" } <br>
+${param.id != null ? param.id.concat("님") :"Guest" } <br>
+
+<%
+	// scope에 저장된 정보가 있어야 조회
+	request.setAttribute("id", "hee");
+	
+	session.setAttribute("name", "j");
+	session.setAttribute("addr", "오리역");
+	
+	application.setAttribute("addr","서울");
+	application.setAttribute("message","EL 학습중");
+%>
+
+<h3> scope에 있는 정보 조회 - xxxScope을 생략할 수 있다.</h3>
+아이디 : <%=request.getAttribute("id") %> / ${requestScope.id} / ${id} <br>
+
+이름 : <%=session.getAttribute("name") %> / ${sessionScope.name} / ${name} <br>
+주소(session) : <%=session.getAttribute("addr") %> / ${sessionScope.addr} / ${addr} <br>
+
+주소(application) : <%=application.getAttribute("addr") %> / ${applicationScope.addr} / ${addr} <br>
+메시지 : <%=application.getAttribute("message") %> / ${applicationScope.message} / ${message} <br>
+
+<h3>객체 EL로 접근하기</h3>
+<%
+	Product p = new Product();
+%>
+상품코드 :  <%=p.getCode() %>
+상품이름 : 
+상품수량 : 
+상품가격 : 
+총 금액 : 
+</body>
+</html>

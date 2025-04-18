@@ -1,0 +1,5 @@
+package auth.servlet;
+
+public class LoginServlet {
+
+}

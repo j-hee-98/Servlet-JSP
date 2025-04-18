@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=step01_Servlet/C:\/Edu\/SW\/apache-tomcat-10.1.40\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet.http(HttpServlet.class[HttpServlet" modifiers="1057" timestamp="1743495654000"/>
+    <typeInfo handle="=step05_Listener/C:\/Edu\/SW\/apache-tomcat-10.1.40\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet(ServletContextListener.class[ServletContextListener" modifiers="1537" timestamp="1743495654000"/>
+    <typeInfo handle="=step05_Listener/C:\/Edu\/SW\/apache-tomcat-10.1.40\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet(ServletContext.class[ServletContext" modifiers="1537" timestamp="1743495654000"/>
+    <typeInfo handle="=step04_Filter/C:\/Edu\/SW\/apache-tomcat-10.1.40\/lib\/servlet-api.jar=/javadoc_location=/https:\/\/jakarta.ee\/specifications\/servlet\/6.0\/apidocs\/jakarta.servlet\/=/=/owner.project.facets=/jst.web=/&lt;jakarta.servlet(Filter.class[Filter" modifiers="1537" timestamp="1743495654000"/>
+</typeInfoHistroy>

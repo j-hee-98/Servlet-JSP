@@ -1,0 +1,24 @@
+package filter;
+
+import java.io.IOException;
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+
+public class LogFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+			throws IOException, ServletException {
+		
+		// 사전 처리
+		long start = System.currentTimeMillis();	// 현재시간
+		
+		
+		// 사후처리
+	}
+
+}

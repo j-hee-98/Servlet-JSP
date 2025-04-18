@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>방문자 수 증가</h3>
+<%
+	Object con = application.getAttribute("count");
+	
+	if ( session.isNew()) {
+		
+	}
+%>
+방문자 수 : <%=con %>명
+</body>
+</html>

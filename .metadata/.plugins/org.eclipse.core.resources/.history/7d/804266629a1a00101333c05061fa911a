@@ -1,0 +1,51 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	Calendar cal = Calendar.getInstance();
+	int y = cal.get(Calendar.YEAR);
+	int m = cal.get(Calendar.MONTH)+1;
+	int d = cal.get(Calendar.DATE);
+
+	int h = cal.get(Calendar.HOUR_OF_DAY);
+	int min = cal.get(Calendar.MINUTE);
+	int s = cal.get(Calendar.SECOND);
+
+	StringBuilder sb = new StringBuilder();
+	sb.append(y+"년 ");
+	sb.append(m+"월 ");
+	sb.append(d+"일 ");
+	sb.append(h+"시 ");
+	sb.append(min+"분 ");
+	sb.append(s+"초");
+	
+	long time = cal.getTimeInMillis();
+	Cookie co = new Cookie("lastDate", "time");
+	co.setMaxAge(60*60);
+	co.setPath("/");
+	
+	Cookie [] cookie = request.getCookies();
+%>
+<c:choose>
+	<c:when test="${not empty cookie.lastDate}">
+		<h3>당신은 처음 방문한 인간입니다.</h3> <br>
+		<h3>현재 접속시간 : <%=sb.toString() %></h3>
+		
+	</c:when>
+	<c:otherwise>
+		
+	</c:otherwise>
+</c:choose>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

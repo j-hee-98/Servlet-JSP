@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3 style="text-align: center;">Board LIST</h3>
+	
+	<table class="w3-table w3-striped w3-bordered">
+		<tr>
+			<th>no</th>
+			<th>subject</th>
+			<th>content</th>
+		</tr>
+		<c:forEach items="${applicationScope.boardList }"  var="board">
+			<tr>
+				<td>${board.no }</td>
+				<td>${board.subject }</td>
+				<td>${board.content }</td>
+			</tr>		
+		</c:forEach>
+	</table>
+</body>
+</html>

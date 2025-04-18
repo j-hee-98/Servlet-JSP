@@ -1,0 +1,51 @@
+<%@page import="java.util.Date" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	boolean state = false;
+	String message = "";
+	long currentTime = System.currentTimeMillis();
+	Cookie lastDate = null;
+	
+	Cookie [] cookie = request.getCookies();
+	
+	// 쿠키 탐색
+	if (cookie != null) {
+		for (Cookie co: cookie) {
+			if (co.getName().equals("lastDate")) {
+				state=true;
+				lastDate=co;
+				break;
+			}
+		}
+	}
+	
+	// 방문 처리 부분
+	if (!state) {
+		message = "당신은 처음 온 인간입니다.";
+		lastDate = new Cookie("lastDate", String.valueOf(currentTime));
+	} else {
+		long lastTime = Long.parseLong(lastDate.getValue());
+	    message = "당신의 마지막 접속일은 " + new Date(lastTime).toLocaleString();
+	    lastDate.setValue(String.valueOf(currentTime));
+	}
+	
+	lastDate.setMaxAge(60*60);
+	lastDate.setPath("/");
+	response.addCookie(lastDate);
+%>
+
+	<h2>
+	<%=message %><p>
+	현재 접속 시간 : <%= new Date(currentTime).toLocaleString() %><br>
+    저장된 시간 : <%= currentTime %>
+	</h2>
+</body>
+</html>

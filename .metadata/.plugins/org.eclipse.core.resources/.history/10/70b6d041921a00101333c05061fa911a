@@ -1,0 +1,12 @@
+package ex0416.el;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ForEachBean {
+	private String names [] = {"둘리","짱구","희동이","루피", "뽀로로"};
+	
+	private List<String> menus = Arrays.asList("짜장", "짬뽕", "탕수육", "팔보채", "짬짜면");
+	
+	private List<Board>
+}

@@ -1,0 +1,41 @@
+package auth.listener;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSessionEvent;
+import jakarta.servlet.http.HttpSessionListener;
+
+@WebListener
+public class UserAccessCountListener implements ServletContextListener, HttpSessionListener {
+
+    public UserAccessCountListener() {
+       System.out.println("UserAccessCountListener  생성됨...");
+    }
+
+    /**
+     * 	서버가 start될 때 loginCount를 초기화 한다 - application영역
+     */
+    public void contextInitialized(ServletContextEvent e)  { 
+         ServletContext application = e.getServletContext();
+         
+         application.setAttribute("loginCount", new AtomicInteger());
+    }
+    
+    @Override
+    public void sessionCreated(HttpSessionEvent se) {
+    	
+    }
+    
+    /**
+     * 	session.invalidate(); or session-timeout이 될때 호출
+     * 	loginCount를 감소
+     */
+    @Override
+    public void sessionDestroyed(HttpSessionEvent se) {
+    	
+    }
+}

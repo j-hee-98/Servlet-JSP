@@ -1,0 +1,5 @@
+	<%@page import="java.util.Date"%>
+<h3>
+	여기는 header.jsp입니다.
+	현재날짜 : <%=new Date().toLocaleString() %>
+	</h3>

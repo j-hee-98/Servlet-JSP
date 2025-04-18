@@ -1,0 +1,41 @@
+package servlet;
+
+import java.io.IOException;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/board")
+public class BoardServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public BoardServlet() {
+    	System.out.println("BoardServlet 생성자 호출");
+    }
+   
+	public void init(ServletConfig config) throws ServletException {
+		this.init();
+		ServletContext application = config.getServletContext();
+		Object list = application.getAttribute("boardList");
+	}
+	
+	@Override
+	public void init() throws ServletException {
+		
+	}
+	
+	@Override
+	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+		// 글 추가
+		BoardDTO boardList = new BoardDTO();
+		
+	}
+
+}

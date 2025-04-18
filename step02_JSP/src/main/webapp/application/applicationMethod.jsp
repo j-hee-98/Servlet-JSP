@@ -1,0 +1,36 @@
+<%@page import="java.util.Arrays"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>ServletContext - application</h3>
+<h3>
+	application.getRealPath("/") = <%=application.getRealPath("/") %><br>
+	application.getContextPath() = <%=application.getContextPath() %><br>
+	application.getMajorVersion() = <%=application.getMajorVersion() %><br>
+	
+	<%
+		//application에 정보 저장
+		application.setAttribute("message", "곧 쉬시");
+		application.setAttribute("menus", Arrays.asList("짜장","짬뽕","탕수육"));
+		
+		// session에 저장
+		session.setAttribute("id", "j-hee");
+		
+		// request에 저장
+		request.setAttribute("addr", "오리역");
+	%>
+	
+	메시지 : <%=application.getAttribute("message") %> <br> 
+	메뉴 : <%=application.getAttribute("menus") %> <br>
+	아이디 : <%=session.getAttribute("id") %>	<br>
+	주소 : <%=request.getAttribute("addr") %> <br>
+	<a href="applicationGet.jsp"> 확인하러 ㄱㄱ</a>
+</h3>
+</body>
+</html>

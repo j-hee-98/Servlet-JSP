@@ -1,0 +1,9 @@
+package ex0417.log;
+
+public class LogTest {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

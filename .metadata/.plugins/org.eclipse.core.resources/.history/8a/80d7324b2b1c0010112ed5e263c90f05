@@ -1,0 +1,28 @@
+package listener;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+import servlet.BoardDTO;
+
+@WebListener
+public class AddBoardListListener implements ServletContextListener {
+
+    public AddBoardListListener() {
+        System.out.println("AddBoardListListener 생성자 call...");
+    }
+
+    public void contextInitialized(ServletContextEvent e)  { 
+        ServletContext application = e.getServletContext();
+        application.setAttribute("Board", new BoardDTO(1,"쉬고싶다","이제 곧 쉰데여"));
+        application.setAttribute("Board", new BoardDTO(2,"spring","프레임웍"));
+        application.setAttribute("Board", new BoardDTO(3,"HTML","front 기술"));
+        application.setAttribute("path", application.getContextPath());
+    }
+
+    public void contextDestroyed(ServletContextEvent sce)  { 
+         
+    }
+	
+}

@@ -1,0 +1,10 @@
+package ex0414.servlet;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class LoginServlet extends HttpServlet {
+		
+	public LoginServlet() {
+		System.out.println();
+	}
+}

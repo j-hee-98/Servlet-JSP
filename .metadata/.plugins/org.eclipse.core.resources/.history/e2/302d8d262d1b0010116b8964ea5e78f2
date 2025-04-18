@@ -1,0 +1,10 @@
+package ex0417.servlet;
+
+import jakarta.servlet.http.HttpServlet;
+
+public class InitParamTestServlet extends HttpServlet {
+	public InitParamTestServlet() {
+		System.out.println("InitParamTestServlet 생성자 호출");
+	}
+	
+}

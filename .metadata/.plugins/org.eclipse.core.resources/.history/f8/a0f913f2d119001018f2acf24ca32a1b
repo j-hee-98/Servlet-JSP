@@ -1,0 +1,45 @@
+package auth.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+public class LoginServlet extends HttpServlet{
+	String id = "hee";
+	String pwd = "1234";
+	public LoginServlet() {
+		System.out.println("LoginServlet constructor call......");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String userId = request.getParameter("id");
+		String userP = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+		
+		response.setContentType("text/html;charset=UTF-8");
+		
+		if (id.equals(userId) && pwd.equals(userP)) {
+			out.print("<script>");
+			out.print("alert('로그인 성공')");
+			out.print("</script>");
+			session.setAttribute("id", id);
+			session.setAttribute("name", name);
+			
+			response.sendRedirect("LoginOk.jsp");
+			
+		} else {
+			out.print("<script>");
+			out.print("alert('아이디와 비밀번호를 다시 입력해주세연')");
+			out.print("history.back()");
+			out.print("</script>");
+		}
+	}
+}
