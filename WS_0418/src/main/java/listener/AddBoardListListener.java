@@ -24,7 +24,6 @@ public class AddBoardListListener implements ServletContextListener {
         boardList.add(new BoardDTO(3,"HTML","front 기술"));
         
         application.setAttribute("boardList", boardList);
-        application.setAttribute("path", application.getContextPath());
         System.out.println("application안에 boardList 저장...");
     }
 

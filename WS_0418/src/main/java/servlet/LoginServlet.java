@@ -61,11 +61,7 @@ public class LoginServlet extends HttpServlet {
 			 
 			 session.setAttribute("creationTime", sb.toString());
 			 
-			 PrintWriter pw = response.getWriter();
-			 pw.println("<script>");
-			 pw.println("top.location.href='index.jsp';");
-			 pw.println("</script>");
-//			 response.sendRedirect("index.jsp");
+			 response.getWriter().println("<script>top.location.href='index.jsp';</script>");
 		}
 	}
 
